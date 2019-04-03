@@ -3,8 +3,14 @@
     <string name="ngo_member">NGO Member</string>
     <string name="ngo_supporter">NGO Supporter</string>
     <string name="login_as">"LOGIN AS: "</string>
-    <string name="add_animals">ADD ANIMALS</string>
+    <string name="add_animals">ADD ANIMAL</string>
     <string name="show_animals">SHOW ANIMALS</string>
-    <string name="add_donations">ADD DONATIONS</string>
+    <string name="add_donations">ADD DONATION</string>
     <string name="show_donations">SHOW_DONATIONS</string>
+    <string name="specie">SPECIE</string>
+    <string name="entry_date">ENTRY DATE</string>
+    <string name="age">AGE</string>
+    <string name="characteristics">CHARACTERISTICS</string>
+    <string name="life_phase">LIFE PHASE</string>
+    <string name="add">ADD</string>
 </resources>
