@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BuddyFinder</string>
+    <string name="ngo_member">NGO Member</string>
+    <string name="ngo_supporter">NGO Supporter</string>
+    <string name="login_as">"LOGIN AS: "</string>
+</resources>
