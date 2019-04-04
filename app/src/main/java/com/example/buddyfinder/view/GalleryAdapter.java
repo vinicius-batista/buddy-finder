@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
 
     private ArrayList<Bitmap> picList;
-    private  GalleryListener galleryListener;
+    private GalleryListener galleryListener;
 
     public GalleryAdapter(GalleryListener galleryListener){
         this.galleryListener = galleryListener;
@@ -34,7 +34,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
         View view = layoutInflater.inflate(R.layout.view_holder_gallery, viewGroup,false);
-        return new GalleryViewHolder(view, galleryListener);
+        return new GalleryViewHolder(view, this.galleryListener);
     }
 
     @Override

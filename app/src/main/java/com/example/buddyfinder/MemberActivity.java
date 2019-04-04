@@ -17,4 +17,9 @@ public class MemberActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddAnimalActivity.class);
         this.startActivity(intent);
     }
+
+    public void onClickShowAnimals (View v) {
+        Intent intent = new Intent(this, ShowAnimalsActivity.class);
+        this.startActivity(intent);
+    }
 }
