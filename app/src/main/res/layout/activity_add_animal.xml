@@ -89,6 +89,20 @@
             app:layout_constraintTop_toBottomOf="@+id/ptxtAge" />
 
         <Button
+            android:id="@+id/btnTakePic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:onClick="onClickTakePic"
+            android:text="@string/take_pic" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvGallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="32dp" />
+
+        <Button
             android:id="@+id/btnAdd"
             android:layout_width="384dp"
             android:layout_height="wrap_content"
