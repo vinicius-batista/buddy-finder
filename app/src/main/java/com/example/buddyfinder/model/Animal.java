@@ -1,10 +1,12 @@
 package com.example.buddyfinder.model;
 
 import android.graphics.Bitmap;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class Animal {
+public class Animal implements Parcelable {
     private String specie;
     private String entryDate;
     private String age;
@@ -22,6 +24,28 @@ public class Animal {
         this.status = "available";
         this.pictures = pictures;
     }
+
+    protected Animal(Parcel in) {
+        this.specie = in.readString();
+        this.entryDate = in.readString();
+        this.age = in.readString();
+        this.lifePhase = in.readString();
+        this.characteristics = in.readString();
+        this.status = in.readString();
+        this.pictures = in.createTypedArrayList(Bitmap.CREATOR);
+    }
+
+    public static final Creator<Animal> CREATOR = new Creator<Animal>() {
+        @Override
+        public Animal createFromParcel(Parcel in) {
+            return new Animal(in);
+        }
+
+        @Override
+        public Animal[] newArray(int size) {
+            return new Animal[size];
+        }
+    };
 
     public String getSpecie() {
         return specie;
@@ -77,5 +101,21 @@ public class Animal {
 
     public void setPictures(ArrayList<Bitmap> pictures) {
         this.pictures = pictures;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.specie);
+        dest.writeString(this.entryDate);
+        dest.writeString(this.age);
+        dest.writeString(this.lifePhase);
+        dest.writeString(this.characteristics);
+        dest.writeString(this.status);
+        dest.writeTypedList(this.pictures);
     }
 }

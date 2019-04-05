@@ -14,4 +14,5 @@
     <string name="life_phase">LIFE PHASE</string>
     <string name="add">ADD</string>
     <string name="take_pic">TAKE A PIC</string>
+    <string name="status">STATUS</string>
 </resources>

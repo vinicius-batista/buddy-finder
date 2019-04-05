@@ -1,5 +1,6 @@
 package com.example.buddyfinder;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ public class ShowAnimalsActivity extends AppCompatActivity implements AnimalsLis
 
     private RecyclerView rvAnimalsList;
     private AnimalsListAdapter animalsListAdapter;
+    public static final String ANIMAL_KEY = "com.example.buddyfinder.ShowAnimalsActivity.ANIMAL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class ShowAnimalsActivity extends AppCompatActivity implements AnimalsLis
 
     @Override
     public void onClickAnimalListener(Animal animal) {
-
+        Intent intent = new Intent(this, AnimalDetailsActivity.class);
+        intent.putExtra(ANIMAL_KEY, animal);
+        this.startActivity(intent);
     }
 }

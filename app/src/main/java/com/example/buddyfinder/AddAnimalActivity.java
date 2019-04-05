@@ -52,10 +52,10 @@ public class AddAnimalActivity extends AppCompatActivity implements GalleryAdapt
     }
 
     private void createGallery () {
-        this.rvGallery = (RecyclerView) findViewById(R.id.rvGallery);
+        this.rvGallery = (RecyclerView) this.findViewById(R.id.rvGallery);
         this.galleryAdapter = new GalleryAdapter(this);
 
-        Display display = getWindowManager().getDefaultDisplay();
+        Display display = this.getWindowManager().getDefaultDisplay();
         DisplayMetrics displayMetrics = new DisplayMetrics();
         display.getMetrics(displayMetrics);
         float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
