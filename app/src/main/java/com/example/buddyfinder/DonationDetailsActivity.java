@@ -2,10 +2,15 @@ package com.example.buddyfinder;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
+import com.example.buddyfinder.data.DAODonations;
 import com.example.buddyfinder.model.Donation;
 
+import java.util.ArrayList;
+
+// TODO: add donors list
 public class DonationDetailsActivity extends AppCompatActivity {
 
     private TextView txtKind;
@@ -33,5 +38,16 @@ public class DonationDetailsActivity extends AppCompatActivity {
         this.txtDescription.setText(this.donation.getDescription());
         this.txtQuantity.setText(this.donation.getQuantity());
         this.txtStatus.setText(this.donation.getStatus());
+    }
+
+    public void onClickClose(View v) {
+        ArrayList<Donation> donations = DAODonations.getInstance().getDonations();
+        for (Donation donation: donations) {
+            if(donation.equals(this.donation)) {
+                donation.setStatus("closed");
+            }
+        }
+        
+        this.finish();
     }
 }

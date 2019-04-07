@@ -17,17 +17,13 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListView
     private DonationsListAdapter.DonationsListener donationsListener;
 
     public DonationsListAdapter (DonationsListAdapter.DonationsListener donationsListener) {
-        ArrayList<Donation> donations = DAODonations.getInstance().getDonations();
-        ArrayList<Donation> openDonations = new ArrayList<>();
-
-        for (Donation donation: donations) {
-            if (donation.getStatus().equalsIgnoreCase("open")) {
-                openDonations.add(donation);
-            }
-        }
-
-        this.donationsList = openDonations;
+        this.donationsList = DAODonations.getInstance().getOpenDonations();
         this.donationsListener = donationsListener;
+    }
+
+    public void refreshList() {
+        this.donationsList = DAODonations.getInstance().getOpenDonations();
+        this.notifyDataSetChanged();
     }
 
     public interface DonationsListener {

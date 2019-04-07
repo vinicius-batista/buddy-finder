@@ -34,4 +34,10 @@ public class ShowDonationsActivity extends AppCompatActivity implements Donation
         intent.putExtra(DONATION_KEY, donation);
         this.startActivity(intent);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        this.donationsListAdapter.refreshList();
+    }
 }

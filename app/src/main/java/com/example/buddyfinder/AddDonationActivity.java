@@ -29,7 +29,7 @@ public class AddDonationActivity extends AppCompatActivity {
         String quantity = this.ptxtQuantity.getText().toString();
         String description = this.ptxtDescription.getText().toString();
 
-        Donation donation = new Donation(id, kind, quantity, description);
+        Donation donation = new Donation(kind, quantity, description);
         DAODonations.getInstance().addDonation(donation);
 
         this.finish();

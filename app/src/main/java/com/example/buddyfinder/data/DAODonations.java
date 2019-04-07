@@ -26,4 +26,16 @@ public class DAODonations {
         donation.setId(this.counter++);
         this.donations.add(donation);
     }
+
+    public ArrayList<Donation> getOpenDonations() {
+        ArrayList<Donation> openDonations = new ArrayList<>();
+
+        for (Donation donation: this.donations) {
+            if (donation.getStatus().equalsIgnoreCase("open")) {
+                openDonations.add(donation);
+            }
+        }
+
+        return openDonations;
+    }
 }
