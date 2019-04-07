@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Donation implements Parcelable {
+    private int id;
     private String kind;
     private String quantity;
     private String description;
@@ -17,6 +18,7 @@ public class Donation implements Parcelable {
     }
 
     protected Donation(Parcel in) {
+        id = in.readInt();
         kind = in.readString();
         quantity = in.readString();
         description = in.readString();
@@ -67,6 +69,14 @@ public class Donation implements Parcelable {
         this.status = status;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -74,9 +84,24 @@ public class Donation implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(kind);
         dest.writeString(quantity);
         dest.writeString(description);
         dest.writeString(status);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Donation)) {
+            return  false;
+        }
+        return ((Donation) obj).getId() == this.getId();
     }
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class DAODonations {
     private static final DAODonations ourInstance = new DAODonations();
     private ArrayList<Donation> donations;
+    private int counter;
 
     public static DAODonations getInstance() {
         return ourInstance;
@@ -14,6 +15,7 @@ public class DAODonations {
 
     private DAODonations() {
         this.donations = new ArrayList<>();
+        this.counter = 0;
     }
 
     public ArrayList<Donation> getDonations() {
@@ -21,6 +23,7 @@ public class DAODonations {
     }
 
     public void addDonation(Donation donation) {
+        donation.setId(this.counter++);
         this.donations.add(donation);
     }
 }
