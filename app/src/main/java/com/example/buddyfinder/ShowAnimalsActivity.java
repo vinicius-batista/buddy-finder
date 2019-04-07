@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import com.example.buddyfinder.model.Animal;
 import com.example.buddyfinder.view.AnimalsListAdapter;
 
-public class ShowAnimalsActivity extends AppCompatActivity implements AnimalsListAdapter.AnimalListener{
+public class ShowAnimalsActivity extends AppCompatActivity implements AnimalsListAdapter.AnimalListener {
 
     private RecyclerView rvAnimalsList;
     private AnimalsListAdapter animalsListAdapter;

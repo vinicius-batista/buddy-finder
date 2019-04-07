@@ -12,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.buddyfinder.data.DAOAnimals;
@@ -44,10 +43,10 @@ public class AddAnimalActivity extends AppCompatActivity implements GalleryAdapt
 
         this.photoOpenDialogFragment = new PhotoOpenDialogFragment();
         this.pictures = new ArrayList<>();
-        this.ptxtSpecie = this.findViewById(R.id.ptxtSpecie);
+        this.ptxtSpecie = this.findViewById(R.id.ptxtQuantity);
         this.ptxtEntryDate = this.findViewById(R.id.ptxtEntryDate);
-        this.ptxtCharacteristics = this.findViewById(R.id.ptxtCharacteristics);
-        this.ptxtAge = this.findViewById(R.id.ptxtAge);
+        this.ptxtCharacteristics = this.findViewById(R.id.ptxtKind);
+        this.ptxtAge = this.findViewById(R.id.ptxtDescription);
         this.ptxtLifePhase = this.findViewById(R.id.ptxtLifePhase);
     }
 

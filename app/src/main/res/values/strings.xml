@@ -15,4 +15,7 @@
     <string name="add">ADD</string>
     <string name="take_pic">TAKE A PIC</string>
     <string name="status">STATUS</string>
+    <string name="kind">KIND</string>
+    <string name="quantity">QUANTITY</string>
+    <string name="description">DESCRIPTION</string>
 </resources>

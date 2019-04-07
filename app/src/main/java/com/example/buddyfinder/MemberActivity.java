@@ -22,4 +22,9 @@ public class MemberActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ShowAnimalsActivity.class);
         this.startActivity(intent);
     }
+
+    public void onClickAddDonation (View v) {
+        Intent intent = new Intent(this, AddDonationActivity.class);
+        this.startActivity(intent);
+    }
 }
