@@ -27,4 +27,9 @@ public class MemberActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddDonationActivity.class);
         this.startActivity(intent);
     }
+
+    public void onClickShowDonations (View v) {
+        Intent intent = new Intent(this, ShowDonationsActivity.class);
+        this.startActivity(intent);
+    }
 }
