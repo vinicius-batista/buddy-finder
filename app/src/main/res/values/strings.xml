@@ -18,4 +18,5 @@
     <string name="kind">KIND</string>
     <string name="quantity">QUANTITY</string>
     <string name="description">DESCRIPTION</string>
+    <string name="close">CLOSE</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.buddyfinder;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +30,8 @@ public class ShowDonationsActivity extends AppCompatActivity implements Donation
 
     @Override
     public void onClickDonationListener(Donation donation) {
-
+        Intent intent = new Intent(this, DonationDetailsActivity.class);
+        intent.putExtra(DONATION_KEY, donation);
+        this.startActivity(intent);
     }
 }
