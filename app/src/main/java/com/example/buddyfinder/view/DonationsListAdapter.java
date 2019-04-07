@@ -11,7 +11,6 @@ import com.example.buddyfinder.data.DAODonations;
 import com.example.buddyfinder.model.Donation;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListViewHolder> {
     private ArrayList<Donation> donationsList;
@@ -19,16 +18,15 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListView
 
     public DonationsListAdapter (DonationsListAdapter.DonationsListener donationsListener) {
         ArrayList<Donation> donations = DAODonations.getInstance().getDonations();
-        Iterator<Donation> iterator = donations.iterator();
+        ArrayList<Donation> openDonations = new ArrayList<>();
 
-        while(iterator.hasNext()) {
-            Donation donation = iterator.next();
-            if(donation.getStatus().equalsIgnoreCase("closed")) {
-                iterator.remove();
+        for (Donation donation: donations) {
+            if (donation.getStatus().equalsIgnoreCase("open")) {
+                openDonations.add(donation);
             }
         }
 
-        this.donationsList = donations;
+        this.donationsList = openDonations;
         this.donationsListener = donationsListener;
     }
 
