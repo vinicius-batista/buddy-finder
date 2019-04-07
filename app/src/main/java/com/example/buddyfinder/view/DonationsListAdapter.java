@@ -18,8 +18,8 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListView
     private DonationsListAdapter.DonationsListener donationsListener;
 
     public DonationsListAdapter (DonationsListAdapter.DonationsListener donationsListener) {
-        ArrayList<Donation> allDonations = DAODonations.getInstance().getDonations();
-        Iterator<Donation> iterator = allDonations.iterator();
+        ArrayList<Donation> donations = DAODonations.getInstance().getDonations();
+        Iterator<Donation> iterator = donations.iterator();
 
         while(iterator.hasNext()) {
             Donation donation = iterator.next();
@@ -28,7 +28,7 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListView
             }
         }
 
-        this.donationsList = allDonations;
+        this.donationsList = donations;
         this.donationsListener = donationsListener;
     }
 
