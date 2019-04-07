@@ -13,11 +13,11 @@ import com.example.buddyfinder.model.Animal;
 import java.util.ArrayList;
 
 public class AnimalsListAdapter extends RecyclerView.Adapter<AnimalsListViewHolder>  {
-    private ArrayList<Animal> peopleList;
+    private ArrayList<Animal> animalList;
     private AnimalListener animalListener;
 
     public AnimalsListAdapter (AnimalListener animalListener) {
-        this.peopleList = DAOAnimals.getInstance().getAnimals();
+        this.animalList = DAOAnimals.getInstance().getAnimals();
         this.animalListener = animalListener;
     }
 
@@ -35,11 +35,11 @@ public class AnimalsListAdapter extends RecyclerView.Adapter<AnimalsListViewHold
 
     @Override
     public void onBindViewHolder(@NonNull AnimalsListViewHolder animalsListViewHolder, int i) {
-        animalsListViewHolder.bind(this.peopleList.get(i));
+        animalsListViewHolder.bind(this.animalList.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return this.peopleList.size();
+        return this.animalList.size();
     }
 }
