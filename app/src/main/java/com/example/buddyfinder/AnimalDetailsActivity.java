@@ -79,8 +79,8 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
 
     @Override
     public void onClickPhoto(Bitmap pic) {
-        photoOpenDialogFragment.setBitmap(pic);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        photoOpenDialogFragment.show(fragmentManager, "showpic");
+        this.photoOpenDialogFragment.setBitmap(pic);
+        FragmentManager fragmentManager = this.getSupportFragmentManager();
+        this.photoOpenDialogFragment.show(fragmentManager, "showpic");
     }
 }

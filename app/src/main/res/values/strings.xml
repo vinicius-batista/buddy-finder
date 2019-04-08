@@ -19,4 +19,10 @@
     <string name="quantity">QUANTITY</string>
     <string name="description">DESCRIPTION</string>
     <string name="close">CLOSE</string>
+    <string name="logout">LOGOUT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="name">NAME</string>
+    <string name="phone">PHONE</string>
+    <string name="login">LOGIN</string>
 </resources>
