@@ -20,6 +20,8 @@
     <string name="description">DESCRIPTION</string>
     <string name="close">CLOSE</string>
     <string name="logout">LOGOUT</string>
+    <string name="amount">AMOUNT</string>
+    <string name="donate">DONATE</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="name">NAME</string>

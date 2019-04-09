@@ -1,5 +1,6 @@
 package com.example.buddyfinder;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,8 @@ public class SupporterActivity extends AppCompatActivity {
     }
 
     public void onClickShowDonations(View v) {
-
+        Intent intent = new Intent(this, ShowDonationsActivity.class);
+        this.startActivity(intent);
     }
 
     public void onClickShowAnimals(View v) {

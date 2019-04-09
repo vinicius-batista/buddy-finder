@@ -81,6 +81,32 @@
             android:onClick="onClickClose"
             android:text="@string/close" />
 
+        <LinearLayout
+            android:id="@+id/llDonate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <EditText
+                android:id="@+id/ptxtAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:ems="10"
+                android:hint="@string/amount"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/btnDonate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:onClick="onClickDonate"
+                android:text="@string/donate" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

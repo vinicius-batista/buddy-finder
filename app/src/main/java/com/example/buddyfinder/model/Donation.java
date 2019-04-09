@@ -3,18 +3,22 @@ package com.example.buddyfinder.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 public class Donation implements Parcelable {
     private int id;
     private String kind;
     private String quantity;
     private String description;
     private String status;
+    private ArrayList<SupporterDonation> supporterDonations;
 
     public Donation(String kind, String quantity, String description) {
         this.kind = kind;
         this.quantity = quantity;
         this.description = description;
         this.status = "open";
+        this.supporterDonations = new ArrayList<>();
     }
 
     protected Donation(Parcel in) {
@@ -23,6 +27,7 @@ public class Donation implements Parcelable {
         quantity = in.readString();
         description = in.readString();
         status = in.readString();
+        supporterDonations = in.readArrayList(null);
     }
 
     public static final Creator<Donation> CREATOR = new Creator<Donation>() {
@@ -77,6 +82,14 @@ public class Donation implements Parcelable {
         this.id = id;
     }
 
+    public ArrayList<SupporterDonation> getSupporterDonations() {
+        return supporterDonations;
+    }
+
+    public void addSupporterDonation(SupporterDonation supporterDonations) {
+        this.supporterDonations.add(supporterDonations);
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -89,6 +102,7 @@ public class Donation implements Parcelable {
         dest.writeString(quantity);
         dest.writeString(description);
         dest.writeString(status);
+        dest.writeList(supporterDonations);
     }
 
     @Override
