@@ -27,7 +27,7 @@ public class Donation implements Parcelable {
         quantity = in.readString();
         description = in.readString();
         status = in.readString();
-        supporterDonations = in.readArrayList(null);
+        supporterDonations = in.readArrayList(SupporterDonation.class.getClassLoader());
     }
 
     public static final Creator<Donation> CREATOR = new Creator<Donation>() {

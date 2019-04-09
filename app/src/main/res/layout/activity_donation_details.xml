@@ -71,6 +71,11 @@
             android:padding="5dp"
             android:textSize="18sp" />
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvSupporterDonations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/btnCloseDonation"
             android:layout_width="match_parent"
