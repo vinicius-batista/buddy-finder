@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.buddyfinder.data.DAOSupporter;
 import com.example.buddyfinder.view.SupporterLoginFragment;
 
 public class SupporterActivity extends AppCompatActivity {
@@ -28,6 +29,7 @@ public class SupporterActivity extends AppCompatActivity {
     }
 
     public void onClickLogout(View v) {
-
+        DAOSupporter.getInstance().setSupporter(null);
+        this.finish();
     }
 }
