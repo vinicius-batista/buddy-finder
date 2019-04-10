@@ -78,7 +78,7 @@ public class DonationDetailsActivity extends AppCompatActivity {
         this.txtStatus.setText(this.donation.getStatus());
     }
 
-    private Donation getDAODonation() {
+    private Donation getDonationFromDAO() {
         ArrayList<Donation> donations = DAODonations.getInstance().getDonations();
         for (Donation donation: donations) {
             if (donation.equals(this.donation)) {
@@ -90,7 +90,7 @@ public class DonationDetailsActivity extends AppCompatActivity {
     }
 
     public void onClickClose(View v) {
-        Donation donation = this.getDAODonation();
+        Donation donation = this.getDonationFromDAO();
         donation.setStatus("closed");
 
         this.finish();
@@ -101,7 +101,7 @@ public class DonationDetailsActivity extends AppCompatActivity {
         Supporter supporter = DAOSupporter.getInstance().getSupporter();
         SupporterDonation supporterDonation = new SupporterDonation(amount, supporter);
 
-        Donation donation = this.getDAODonation();
+        Donation donation = this.getDonationFromDAO();
         donation.addSupporterDonation(supporterDonation);
 
         this.finish();
