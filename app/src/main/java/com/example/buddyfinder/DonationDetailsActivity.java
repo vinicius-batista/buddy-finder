@@ -1,7 +1,7 @@
 package com.example.buddyfinder;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -81,7 +81,7 @@ public class DonationDetailsActivity extends AppCompatActivity {
 
     private Donation getDonationFromDAO() {
         ArrayList<Donation> donations = DAODonations.getInstance().getDonations();
-        for (Donation donation: donations) {
+        for (Donation donation : donations) {
             if (donation.equals(this.donation)) {
                 return donation;
             }

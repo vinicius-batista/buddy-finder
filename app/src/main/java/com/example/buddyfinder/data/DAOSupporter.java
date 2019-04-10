@@ -6,13 +6,12 @@ public class DAOSupporter {
     private static final DAOSupporter ourInstance = new DAOSupporter();
     private Supporter supporter;
 
-    public static DAOSupporter getInstance() {
-        return ourInstance;
-    }
-
     private DAOSupporter() {
     }
 
+    public static DAOSupporter getInstance() {
+        return ourInstance;
+    }
 
     public Supporter getSupporter() {
         return supporter;

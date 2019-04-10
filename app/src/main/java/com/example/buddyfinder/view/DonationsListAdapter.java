@@ -16,7 +16,7 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListView
     private ArrayList<Donation> donationsList;
     private DonationsListAdapter.DonationsListener donationsListener;
 
-    public DonationsListAdapter (DonationsListAdapter.DonationsListener donationsListener) {
+    public DonationsListAdapter(DonationsListAdapter.DonationsListener donationsListener) {
         this.donationsList = DAODonations.getInstance().getOpenDonations();
         this.donationsListener = donationsListener;
     }
@@ -24,10 +24,6 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListView
     public void refreshList() {
         this.donationsList = DAODonations.getInstance().getOpenDonations();
         this.notifyDataSetChanged();
-    }
-
-    public interface DonationsListener {
-        void onClickDonationListener(Donation donation);
     }
 
     @NonNull
@@ -46,5 +42,9 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListView
     @Override
     public int getItemCount() {
         return this.donationsList.size();
+    }
+
+    public interface DonationsListener {
+        void onClickDonationListener(Donation donation);
     }
 }

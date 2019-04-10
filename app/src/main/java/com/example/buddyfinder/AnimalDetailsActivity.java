@@ -1,9 +1,9 @@
 package com.example.buddyfinder;
 
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -75,7 +75,7 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
         this.txtEntryDate.setText(this.animal.getEntryDate());
     }
 
-    private void createGallery () {
+    private void createGallery() {
         this.rvGallery = (RecyclerView) this.findViewById(R.id.rvAnimalGallery);
         this.galleryAdapter = new GalleryAdapter(this);
 
@@ -92,7 +92,7 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
 
     private Animal getAnimalFromDAO() {
         ArrayList<Animal> animals = DAOAnimals.getInstance().getAnimals();
-        for (Animal animal: animals) {
+        for (Animal animal : animals) {
             if (animal.equals(this.animal)) {
                 return animal;
             }

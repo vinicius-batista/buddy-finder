@@ -9,13 +9,13 @@ public class DAOAnimals {
     private ArrayList<Animal> animals;
     private int counter;
 
-    public static DAOAnimals getInstance() {
-        return ourInstance;
-    }
-
     private DAOAnimals() {
         this.animals = new ArrayList<>();
         this.counter = 0;
+    }
+
+    public static DAOAnimals getInstance() {
+        return ourInstance;
     }
 
     public ArrayList<Animal> getAnimals() {
@@ -30,7 +30,7 @@ public class DAOAnimals {
     public ArrayList<Animal> getAvailableAnimals() {
         ArrayList<Animal> availableAnimals = new ArrayList<>();
 
-        for (Animal animal: this.animals) {
+        for (Animal animal : this.animals) {
             if (animal.getStatus().equalsIgnoreCase("available")) {
                 availableAnimals.add(animal);
             }

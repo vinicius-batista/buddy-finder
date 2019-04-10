@@ -1,10 +1,9 @@
 package com.example.buddyfinder;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.buddyfinder.data.DAOSupporter;
 
@@ -15,12 +14,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onClickNgoMember (View V) {
+    public void onClickNgoMember(View V) {
         Intent intent = new Intent(this, MemberActivity.class);
         this.startActivity(intent);
     }
 
-    public void onClickNgoSupporter (View v) {
+    public void onClickNgoSupporter(View v) {
         Intent intent = new Intent(this, SupporterActivity.class);
         this.startActivity(intent);
     }

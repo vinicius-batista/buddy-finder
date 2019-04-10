@@ -1,8 +1,8 @@
 package com.example.buddyfinder;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -11,9 +11,9 @@ import com.example.buddyfinder.view.DonationsListAdapter;
 
 public class ShowDonationsActivity extends AppCompatActivity implements DonationsListAdapter.DonationsListener {
 
+    public static final String DONATION_KEY = "com.example.buddyfinder.ShowDonationsActivity.DONATION";
     private RecyclerView rvDonationsList;
     private DonationsListAdapter donationsListAdapter;
-    public static final String DONATION_KEY = "com.example.buddyfinder.ShowDonationsActivity.DONATION";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -30,7 +30,7 @@ public class PhotoOpenDialogFragment extends DialogFragment {
     public void onStart() {
         super.onStart();
         Dialog dialog = this.getDialog();
-        if(dialog != null) {
+        if (dialog != null) {
             dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         }
     }

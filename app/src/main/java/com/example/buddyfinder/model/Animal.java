@@ -7,6 +7,17 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class Animal implements Parcelable {
+    public static final Creator<Animal> CREATOR = new Creator<Animal>() {
+        @Override
+        public Animal createFromParcel(Parcel in) {
+            return new Animal(in);
+        }
+
+        @Override
+        public Animal[] newArray(int size) {
+            return new Animal[size];
+        }
+    };
     private int id;
     private String specie;
     private String entryDate;
@@ -60,18 +71,6 @@ public class Animal implements Parcelable {
         dest.writeParcelable(this.owner, flags);
         dest.writeList(this.interesedAdopting);
     }
-
-    public static final Creator<Animal> CREATOR = new Creator<Animal>() {
-        @Override
-        public Animal createFromParcel(Parcel in) {
-            return new Animal(in);
-        }
-
-        @Override
-        public Animal[] newArray(int size) {
-            return new Animal[size];
-        }
-    };
 
     public String getSpecie() {
         return specie;
@@ -162,7 +161,7 @@ public class Animal implements Parcelable {
             return true;
         }
         if (!(obj instanceof Animal)) {
-            return  false;
+            return false;
         }
         return ((Animal) obj).getId() == this.getId();
     }

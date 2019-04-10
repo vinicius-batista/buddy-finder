@@ -6,6 +6,17 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class Donation implements Parcelable {
+    public static final Creator<Donation> CREATOR = new Creator<Donation>() {
+        @Override
+        public Donation createFromParcel(Parcel in) {
+            return new Donation(in);
+        }
+
+        @Override
+        public Donation[] newArray(int size) {
+            return new Donation[size];
+        }
+    };
     private int id;
     private String kind;
     private String quantity;
@@ -44,18 +55,6 @@ public class Donation implements Parcelable {
         dest.writeString(this.status);
         dest.writeList(this.supporterDonations);
     }
-
-    public static final Creator<Donation> CREATOR = new Creator<Donation>() {
-        @Override
-        public Donation createFromParcel(Parcel in) {
-            return new Donation(in);
-        }
-
-        @Override
-        public Donation[] newArray(int size) {
-            return new Donation[size];
-        }
-    };
 
     public String getKind() {
         return kind;
@@ -114,7 +113,7 @@ public class Donation implements Parcelable {
             return true;
         }
         if (!(obj instanceof Donation)) {
-            return  false;
+            return false;
         }
         return ((Donation) obj).getId() == this.getId();
     }

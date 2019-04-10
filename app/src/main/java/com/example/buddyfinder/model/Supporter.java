@@ -4,6 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Supporter implements Parcelable {
+    public static final Creator<Supporter> CREATOR = new Creator<Supporter>() {
+        @Override
+        public Supporter createFromParcel(Parcel in) {
+            return new Supporter(in);
+        }
+
+        @Override
+        public Supporter[] newArray(int size) {
+            return new Supporter[size];
+        }
+    };
     private String name;
     private String phone;
 
@@ -16,18 +27,6 @@ public class Supporter implements Parcelable {
         this.name = in.readString();
         this.phone = in.readString();
     }
-
-    public static final Creator<Supporter> CREATOR = new Creator<Supporter>() {
-        @Override
-        public Supporter createFromParcel(Parcel in) {
-            return new Supporter(in);
-        }
-
-        @Override
-        public Supporter[] newArray(int size) {
-            return new Supporter[size];
-        }
-    };
 
     @Override
     public int describeContents() {

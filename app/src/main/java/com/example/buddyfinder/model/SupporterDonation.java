@@ -4,6 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class SupporterDonation implements Parcelable {
+    public static final Creator<SupporterDonation> CREATOR = new Creator<SupporterDonation>() {
+        @Override
+        public SupporterDonation createFromParcel(Parcel in) {
+            return new SupporterDonation(in);
+        }
+
+        @Override
+        public SupporterDonation[] newArray(int size) {
+            return new SupporterDonation[size];
+        }
+    };
     private String amount;
     private Supporter supporter;
 
@@ -13,7 +24,7 @@ public class SupporterDonation implements Parcelable {
     }
 
     protected SupporterDonation(Parcel in) {
-        this. amount = in.readString();
+        this.amount = in.readString();
         this.supporter = in.readParcelable(Supporter.class.getClassLoader());
     }
 
@@ -27,18 +38,6 @@ public class SupporterDonation implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
-    public static final Creator<SupporterDonation> CREATOR = new Creator<SupporterDonation>() {
-        @Override
-        public SupporterDonation createFromParcel(Parcel in) {
-            return new SupporterDonation(in);
-        }
-
-        @Override
-        public SupporterDonation[] newArray(int size) {
-            return new SupporterDonation[size];
-        }
-    };
 
     public String getAmount() {
         return amount;

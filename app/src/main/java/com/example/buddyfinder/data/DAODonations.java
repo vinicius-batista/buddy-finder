@@ -9,13 +9,13 @@ public class DAODonations {
     private ArrayList<Donation> donations;
     private int counter;
 
-    public static DAODonations getInstance() {
-        return ourInstance;
-    }
-
     private DAODonations() {
         this.donations = new ArrayList<>();
         this.counter = 0;
+    }
+
+    public static DAODonations getInstance() {
+        return ourInstance;
     }
 
     public ArrayList<Donation> getDonations() {
@@ -30,7 +30,7 @@ public class DAODonations {
     public ArrayList<Donation> getOpenDonations() {
         ArrayList<Donation> openDonations = new ArrayList<>();
 
-        for (Donation donation: this.donations) {
+        for (Donation donation : this.donations) {
             if (donation.getStatus().equalsIgnoreCase("open")) {
                 openDonations.add(donation);
             }

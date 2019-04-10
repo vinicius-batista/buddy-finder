@@ -15,7 +15,7 @@ public class SupporterDonationsListAdapter extends RecyclerView.Adapter<Supporte
     private ArrayList<SupporterDonation> supporterDonationsList;
     private String quantity;
 
-    public SupporterDonationsListAdapter (ArrayList<SupporterDonation> supporterDonations,  String quantity) {
+    public SupporterDonationsListAdapter(ArrayList<SupporterDonation> supporterDonations, String quantity) {
         this.supporterDonationsList = supporterDonations;
         this.quantity = quantity;
     }

@@ -19,7 +19,7 @@ public class SupporterLoginFragment extends DialogFragment implements View.OnCli
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_supporter_login, container, false);
-        
+
         Button btnLogin = view.findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(this);
 

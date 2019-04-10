@@ -2,11 +2,11 @@ package com.example.buddyfinder;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 public class AddAnimalActivity extends AppCompatActivity implements GalleryAdapter.GalleryListener {
 
+    private static final int CAMERA_REQUEST_CODE = 777;
     private EditText ptxtSpecie;
     private EditText ptxtEntryDate;
     private EditText ptxtCharacteristics;
@@ -32,8 +33,6 @@ public class AddAnimalActivity extends AppCompatActivity implements GalleryAdapt
     private GalleryAdapter galleryAdapter;
     private PhotoOpenDialogFragment photoOpenDialogFragment;
     private ArrayList<Bitmap> pictures;
-
-    private static final int CAMERA_REQUEST_CODE = 777;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,7 @@ public class AddAnimalActivity extends AppCompatActivity implements GalleryAdapt
         this.ptxtLifePhase = this.findViewById(R.id.ptxtLifePhase);
     }
 
-    private void createGallery () {
+    private void createGallery() {
         this.rvGallery = (RecyclerView) this.findViewById(R.id.rvGallery);
         this.galleryAdapter = new GalleryAdapter(this);
 
@@ -79,9 +78,9 @@ public class AddAnimalActivity extends AppCompatActivity implements GalleryAdapt
     }
 
 
-    public void onClickTakePic(View view){
+    public void onClickTakePic(View view) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if(intent.resolveActivity(getPackageManager()) != null){
+        if (intent.resolveActivity(getPackageManager()) != null) {
             this.startActivityForResult(intent, CAMERA_REQUEST_CODE);
         }
     }
@@ -95,9 +94,9 @@ public class AddAnimalActivity extends AppCompatActivity implements GalleryAdapt
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK && data != null){
+        if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             Bundle extras = data.getExtras();
-            if(extras != null && extras.containsKey("data")){
+            if (extras != null && extras.containsKey("data")) {
                 Bitmap bmp = (Bitmap) extras.get("data");
                 this.pictures.add(bmp);
                 this.galleryAdapter.setPicList(this.pictures);

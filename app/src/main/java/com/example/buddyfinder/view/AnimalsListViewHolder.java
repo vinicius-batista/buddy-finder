@@ -24,7 +24,7 @@ public class AnimalsListViewHolder extends RecyclerView.ViewHolder implements Vi
         itemView.setOnClickListener(this);
     }
 
-    public void bind (Animal animal) {
+    public void bind(Animal animal) {
         this.txtSpecie.setText(animal.getSpecie());
         this.txtStatus.setText(animal.getStatus());
         this.txtLifePhase.setText(animal.getLifePhase());

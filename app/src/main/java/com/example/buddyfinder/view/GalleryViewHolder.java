@@ -22,7 +22,7 @@ public class GalleryViewHolder extends RecyclerView.ViewHolder implements View.O
     }
 
 
-    public void bind(Bitmap pic){
+    public void bind(Bitmap pic) {
         this.pic = pic;
         imgPic.setImageBitmap(pic);
     }

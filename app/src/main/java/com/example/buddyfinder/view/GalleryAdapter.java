@@ -16,7 +16,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
     private ArrayList<Bitmap> picList;
     private GalleryListener galleryListener;
 
-    public GalleryAdapter(GalleryListener galleryListener){
+    public GalleryAdapter(GalleryListener galleryListener) {
         this.galleryListener = galleryListener;
         this.picList = new ArrayList<>();
     }
@@ -25,15 +25,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
         this.picList = picList;
     }
 
-    public interface GalleryListener {
-        void onClickPhoto(Bitmap pic);
-    }
-
     @NonNull
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        View view = layoutInflater.inflate(R.layout.view_holder_gallery, viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.view_holder_gallery, viewGroup, false);
         return new GalleryViewHolder(view, this.galleryListener);
     }
 
@@ -45,5 +41,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryViewHolder> {
     @Override
     public int getItemCount() {
         return this.picList.size();
+    }
+
+    public interface GalleryListener {
+        void onClickPhoto(Bitmap pic);
     }
 }
