@@ -63,7 +63,7 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
             btnAdopt.setVisibility(Button.VISIBLE);
         }
 
-        if (this.animal.getInterestedAdopting().isEmpty()) {
+        if (this.animal.getInterestedAdopting().isEmpty() && DAOSupporter.getInstance().getSupporter() != null) {
             LinearLayout llInterestedAdopting = this.findViewById(R.id.llInterestedAdopting);
             llInterestedAdopting.setVisibility(LinearLayout.INVISIBLE);
         }
