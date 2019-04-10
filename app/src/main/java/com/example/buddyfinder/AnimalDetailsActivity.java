@@ -8,11 +8,18 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.buddyfinder.data.DAOAnimals;
+import com.example.buddyfinder.data.DAOSupporter;
 import com.example.buddyfinder.model.Animal;
+import com.example.buddyfinder.model.Supporter;
 import com.example.buddyfinder.view.GalleryAdapter;
 import com.example.buddyfinder.view.PhotoOpenDialogFragment;
+
+import java.util.ArrayList;
 
 
 // TODO: SHOW OWNER IF ANIMAL WAS ADOPTED
@@ -28,6 +35,7 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
     private RecyclerView rvGallery;
     private GalleryAdapter galleryAdapter;
     private PhotoOpenDialogFragment photoOpenDialogFragment;
+    private Animal animal;
 
 
     @Override
@@ -39,9 +47,14 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
         this.createTextViews();
         this.createGallery();
 
-        Animal animal = this.getIntent().getParcelableExtra(ShowAnimalsActivity.ANIMAL_KEY);
-        this.setTextViewValues(animal);
-        this.galleryAdapter.setPicList(animal.getPictures());
+        this.animal = this.getIntent().getParcelableExtra(ShowAnimalsActivity.ANIMAL_KEY);
+        this.setTextViewValues();
+        this.galleryAdapter.setPicList(this.animal.getPictures());
+
+        Button btnAdopt = this.findViewById(R.id.btnAdopt);
+        if (DAOSupporter.getInstance().getSupporter() != null) {
+            btnAdopt.setVisibility(Button.VISIBLE);
+        }
     }
 
     private void createTextViews() {
@@ -53,13 +66,13 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
         this.txtEntryDate = this.findViewById(R.id.txtEntryDate);
     }
 
-    private void setTextViewValues(Animal animal) {
-        this.txtSpecie.setText(animal.getSpecie());
-        this.txtLifePhase.setText(animal.getLifePhase());
-        this.txtStatus.setText(animal.getStatus());
-        this.txtAge.setText(animal.getAge());
-        this.txtCharacteristics.setText(animal.getCharacteristics());
-        this.txtEntryDate.setText(animal.getEntryDate());
+    private void setTextViewValues() {
+        this.txtSpecie.setText(this.animal.getSpecie());
+        this.txtLifePhase.setText(this.animal.getLifePhase());
+        this.txtStatus.setText(this.animal.getStatus());
+        this.txtAge.setText(this.animal.getAge());
+        this.txtCharacteristics.setText(this.animal.getCharacteristics());
+        this.txtEntryDate.setText(this.animal.getEntryDate());
     }
 
     private void createGallery () {
@@ -77,10 +90,29 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
         this.rvGallery.setAdapter(this.galleryAdapter);
     }
 
+    private Animal getAnimalFromDAO() {
+        ArrayList<Animal> animals = DAOAnimals.getInstance().getAnimals();
+        for (Animal animal: animals) {
+            if (animal.equals(this.animal)) {
+                return animal;
+            }
+        }
+
+        return null;
+    }
+
     @Override
     public void onClickPhoto(Bitmap pic) {
         this.photoOpenDialogFragment.setBitmap(pic);
         FragmentManager fragmentManager = this.getSupportFragmentManager();
         this.photoOpenDialogFragment.show(fragmentManager, "showpic");
+    }
+
+    public void onClickAdopt(View v) {
+        Supporter supporter = DAOSupporter.getInstance().getSupporter();
+        Animal animal = this.getAnimalFromDAO();
+        animal.addInteresedAdopting(supporter);
+
+        this.finish();
     }
 }

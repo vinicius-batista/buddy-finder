@@ -48,9 +48,10 @@ public class DonationDetailsActivity extends AppCompatActivity {
             llDonate.setVisibility(LinearLayout.VISIBLE);
 
             this.rvSupporterDonations.setVisibility(RecyclerView.INVISIBLE);
-        } else {
-            this.setupRecyclerView();
+            return;
         }
+
+        this.setupRecyclerView();
     }
 
     private void setupRecyclerView() {

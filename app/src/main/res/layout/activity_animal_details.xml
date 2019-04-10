@@ -104,7 +104,18 @@
                 android:id="@+id/rvAnimalGallery"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="5dp" />
+                android:padding="5dp" >
+
+            </android.support.v7.widget.RecyclerView>
+
+            <Button
+                android:id="@+id/btnAdopt"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+                android:onClick="onClickAdopt"
+                android:text="@string/adopt"
+                android:visibility="invisible" />
 
         </LinearLayout>
 

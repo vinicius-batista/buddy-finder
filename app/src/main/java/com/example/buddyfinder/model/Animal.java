@@ -7,6 +7,7 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class Animal implements Parcelable {
+    private int id;
     private String specie;
     private String entryDate;
     private String age;
@@ -14,6 +15,8 @@ public class Animal implements Parcelable {
     private String characteristics;
     private String status;
     private ArrayList<Bitmap> pictures;
+    private Supporter owner;
+    private ArrayList<Supporter> interesedAdopting;
 
     public Animal(String specie, String entryDate, String age, String lifePhase, String characteristics, ArrayList<Bitmap> pictures) {
         this.specie = specie;
@@ -23,9 +26,11 @@ public class Animal implements Parcelable {
         this.characteristics = characteristics;
         this.status = "available";
         this.pictures = pictures;
+        this.interesedAdopting = new ArrayList<>();
     }
 
     protected Animal(Parcel in) {
+        this.id = in.readInt();
         this.specie = in.readString();
         this.entryDate = in.readString();
         this.age = in.readString();
@@ -33,6 +38,27 @@ public class Animal implements Parcelable {
         this.characteristics = in.readString();
         this.status = in.readString();
         this.pictures = in.createTypedArrayList(Bitmap.CREATOR);
+        this.owner = in.readParcelable(Supporter.class.getClassLoader());
+        this.interesedAdopting = in.readArrayList(Supporter.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
+        dest.writeString(this.specie);
+        dest.writeString(this.entryDate);
+        dest.writeString(this.age);
+        dest.writeString(this.lifePhase);
+        dest.writeString(this.characteristics);
+        dest.writeString(this.status);
+        dest.writeTypedList(this.pictures);
+        dest.writeParcelable(this.owner, flags);
+        dest.writeList(this.interesedAdopting);
     }
 
     public static final Creator<Animal> CREATOR = new Creator<Animal>() {
@@ -103,19 +129,41 @@ public class Animal implements Parcelable {
         this.pictures = pictures;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public Supporter getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Supporter owner) {
+        this.owner = owner;
+    }
+
+    public ArrayList<Supporter> getInteresedAdopting() {
+        return interesedAdopting;
+    }
+
+    public void addInteresedAdopting(Supporter supporter) {
+        this.interesedAdopting.add(supporter);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.specie);
-        dest.writeString(this.entryDate);
-        dest.writeString(this.age);
-        dest.writeString(this.lifePhase);
-        dest.writeString(this.characteristics);
-        dest.writeString(this.status);
-        dest.writeTypedList(this.pictures);
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Animal)) {
+            return  false;
+        }
+        return ((Animal) obj).getId() == this.getId();
     }
 }

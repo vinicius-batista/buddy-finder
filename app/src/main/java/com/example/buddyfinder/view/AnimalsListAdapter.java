@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.buddyfinder.R;
 import com.example.buddyfinder.data.DAOAnimals;
+import com.example.buddyfinder.data.DAOSupporter;
 import com.example.buddyfinder.model.Animal;
 
 import java.util.ArrayList;
@@ -17,8 +18,14 @@ public class AnimalsListAdapter extends RecyclerView.Adapter<AnimalsListViewHold
     private AnimalListener animalListener;
 
     public AnimalsListAdapter (AnimalListener animalListener) {
-        this.animalList = DAOAnimals.getInstance().getAnimals();
         this.animalListener = animalListener;
+
+        if (DAOSupporter.getInstance().getSupporter() != null) {
+            this.animalList = DAOAnimals.getInstance().getAvailableAnimals();
+            return;
+        }
+
+        this.animalList = DAOAnimals.getInstance().getAnimals();
     }
 
     public interface AnimalListener {
