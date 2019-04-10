@@ -28,4 +28,5 @@
     <string name="adopt">ADOPT</string>
     <string name="people_interested">PEOPLE INTERESTED IN ADOPTING</string>
     <string name="approve">APPROVE</string>
+    <string name="owner">OWNER</string>
 </resources>

@@ -25,7 +25,6 @@ import com.example.buddyfinder.view.PhotoOpenDialogFragment;
 import java.util.ArrayList;
 
 
-// TODO: SHOW OWNER IF ANIMAL WAS ADOPTED
 public class AnimalDetailsActivity extends AppCompatActivity implements GalleryAdapter.GalleryListener, InterestedAdoptingListAdapter.ApproveListener {
 
     private TextView txtSpecie;
@@ -34,6 +33,8 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
     private TextView txtAge;
     private TextView txtCharacteristics;
     private TextView txtEntryDate;
+    private TextView txtOwner;
+    private TextView txtOw;
     private RecyclerView rvGallery;
     private GalleryAdapter galleryAdapter;
     private RecyclerView rvInterestedAdopting;
@@ -85,6 +86,8 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
         this.txtAge = this.findViewById(R.id.txtAge);
         this.txtCharacteristics = this.findViewById(R.id.txtCharacteristics);
         this.txtEntryDate = this.findViewById(R.id.txtEntryDate);
+        this.txtOwner = this.findViewById(R.id.txtOwner);
+        this.txtOw = this.findViewById(R.id.txtOw);
     }
 
     private void setTextViewValues() {
@@ -94,6 +97,11 @@ public class AnimalDetailsActivity extends AppCompatActivity implements GalleryA
         this.txtAge.setText(this.animal.getAge());
         this.txtCharacteristics.setText(this.animal.getCharacteristics());
         this.txtEntryDate.setText(this.animal.getEntryDate());
+
+        if (this.animal.getOwner() != null) {
+            this.txtOw.setVisibility(TextView.VISIBLE);
+            this.txtOwner.setText(this.animal.getOwner().getName());
+        }
     }
 
     private void createGallery() {
