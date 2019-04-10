@@ -22,12 +22,27 @@ public class Donation implements Parcelable {
     }
 
     protected Donation(Parcel in) {
-        id = in.readInt();
-        kind = in.readString();
-        quantity = in.readString();
-        description = in.readString();
-        status = in.readString();
-        supporterDonations = in.readArrayList(SupporterDonation.class.getClassLoader());
+        this.id = in.readInt();
+        this.kind = in.readString();
+        this.quantity = in.readString();
+        this.description = in.readString();
+        this.status = in.readString();
+        this.supporterDonations = in.readArrayList(SupporterDonation.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
+        dest.writeString(this.kind);
+        dest.writeString(this.quantity);
+        dest.writeString(this.description);
+        dest.writeString(this.status);
+        dest.writeList(this.supporterDonations);
     }
 
     public static final Creator<Donation> CREATOR = new Creator<Donation>() {
@@ -88,21 +103,6 @@ public class Donation implements Parcelable {
 
     public void addSupporterDonation(SupporterDonation supporterDonations) {
         this.supporterDonations.add(supporterDonations);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(kind);
-        dest.writeString(quantity);
-        dest.writeString(description);
-        dest.writeString(status);
-        dest.writeList(supporterDonations);
     }
 
     @Override

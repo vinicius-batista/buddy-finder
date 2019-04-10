@@ -13,14 +13,14 @@ public class SupporterDonation implements Parcelable {
     }
 
     protected SupporterDonation(Parcel in) {
-        amount = in.readString();
-        supporter = in.readParcelable(Supporter.class.getClassLoader());
+        this. amount = in.readString();
+        this.supporter = in.readParcelable(Supporter.class.getClassLoader());
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(amount);
-        dest.writeParcelable(supporter, flags);
+        dest.writeString(this.amount);
+        dest.writeParcelable(this.supporter, flags);
     }
 
     @Override
