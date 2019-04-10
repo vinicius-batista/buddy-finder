@@ -108,6 +108,27 @@
 
             </android.support.v7.widget.RecyclerView>
 
+            <LinearLayout
+                android:id="@+id/llInterestedAdopting"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/people_interested"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvInterestedAdoptingList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
             <Button
                 android:id="@+id/btnAdopt"
                 android:layout_width="match_parent"

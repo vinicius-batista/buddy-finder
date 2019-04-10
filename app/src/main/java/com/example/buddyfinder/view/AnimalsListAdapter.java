@@ -19,13 +19,21 @@ public class AnimalsListAdapter extends RecyclerView.Adapter<AnimalsListViewHold
 
     public AnimalsListAdapter(AnimalListener animalListener) {
         this.animalListener = animalListener;
+        this.getList();
+    }
 
+    private void getList() {
         if (DAOSupporter.getInstance().getSupporter() != null) {
             this.animalList = DAOAnimals.getInstance().getAvailableAnimals();
             return;
         }
 
         this.animalList = DAOAnimals.getInstance().getAnimals();
+    }
+
+    public void refreshList() {
+        this.getList();
+        this.notifyDataSetChanged();
     }
 
     @NonNull

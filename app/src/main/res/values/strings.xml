@@ -26,4 +26,6 @@
     <string name="phone">PHONE</string>
     <string name="login">LOGIN</string>
     <string name="adopt">ADOPT</string>
+    <string name="people_interested">PEOPLE INTERESTED IN ADOPTING</string>
+    <string name="approve">APPROVE</string>
 </resources>

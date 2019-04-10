@@ -34,4 +34,10 @@ public class ShowAnimalsActivity extends AppCompatActivity implements AnimalsLis
         intent.putExtra(ANIMAL_KEY, animal);
         this.startActivity(intent);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        animalsListAdapter.refreshList();
+    }
 }

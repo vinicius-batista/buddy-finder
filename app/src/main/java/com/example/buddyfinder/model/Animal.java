@@ -27,7 +27,7 @@ public class Animal implements Parcelable {
     private String status;
     private ArrayList<Bitmap> pictures;
     private Supporter owner;
-    private ArrayList<Supporter> interesedAdopting;
+    private ArrayList<Supporter> interestedAdopting;
 
     public Animal(String specie, String entryDate, String age, String lifePhase, String characteristics, ArrayList<Bitmap> pictures) {
         this.specie = specie;
@@ -37,7 +37,7 @@ public class Animal implements Parcelable {
         this.characteristics = characteristics;
         this.status = "available";
         this.pictures = pictures;
-        this.interesedAdopting = new ArrayList<>();
+        this.interestedAdopting = new ArrayList<>();
     }
 
     protected Animal(Parcel in) {
@@ -50,7 +50,7 @@ public class Animal implements Parcelable {
         this.status = in.readString();
         this.pictures = in.createTypedArrayList(Bitmap.CREATOR);
         this.owner = in.readParcelable(Supporter.class.getClassLoader());
-        this.interesedAdopting = in.readArrayList(Supporter.class.getClassLoader());
+        this.interestedAdopting = in.readArrayList(Supporter.class.getClassLoader());
     }
 
     @Override
@@ -69,7 +69,7 @@ public class Animal implements Parcelable {
         dest.writeString(this.status);
         dest.writeTypedList(this.pictures);
         dest.writeParcelable(this.owner, flags);
-        dest.writeList(this.interesedAdopting);
+        dest.writeList(this.interestedAdopting);
     }
 
     public String getSpecie() {
@@ -136,12 +136,16 @@ public class Animal implements Parcelable {
         this.owner = owner;
     }
 
-    public ArrayList<Supporter> getInteresedAdopting() {
-        return interesedAdopting;
+    public ArrayList<Supporter> getInterestedAdopting() {
+        return interestedAdopting;
     }
 
-    public void addInteresedAdopting(Supporter supporter) {
-        this.interesedAdopting.add(supporter);
+    public void addInterestedAdopting(Supporter supporter) {
+        this.interestedAdopting.add(supporter);
+    }
+
+    public void clearInterestedAdopting() {
+        this.interestedAdopting.clear();
     }
 
     public int getId() {
